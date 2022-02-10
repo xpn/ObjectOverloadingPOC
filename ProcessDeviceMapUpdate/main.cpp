@@ -57,7 +57,7 @@ int main(int argc, char** argv)
 	DWORD pid;
 
 	if (argc != 2) {
-		printf("Usage: %s PID\n", argv[1]);
+		printf("Usage: %s PID\n", argv[0]);
 		return 2;
 	}
 
@@ -68,7 +68,7 @@ int main(int argc, char** argv)
 	printf("[*] Opening process pid %d\n", pid);
 
 	targetProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
-	if (targetProc == INVALID_HANDLE_VALUE) {
+	if (targetProc == NULL) {
 		printf("[!] Error opening process handle\n");
 		return 1;
 	}
